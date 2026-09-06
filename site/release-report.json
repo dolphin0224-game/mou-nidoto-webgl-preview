@@ -1,6 +1,6 @@
 {
   "id": "release04-traversal-conversation-20260906",
-  "completed_at": "2026-09-06T20:57:07.643006+09:00",
+  "completed_at": "2026-09-06T21:14:09.299639+09:00",
   "changes": [
     "地下道の連続床・両入口の接続坂・北出口の床抜けを修正。高見台の階段と展望床を接続。",
     "調査済み対象を地図とフィールドで✓表示。再調査は時間を消費せず、必要な道具だけ回収可能。",
@@ -21,7 +21,7 @@
     "植生の種類、各ロケーションの美術密度、全会話の文脈と感情曲線は引き続き調整対象です。",
     "全編の初見通しプレイ、全分岐・全衝突面・全画面比率の合格を示す検証ではありません。"
   ],
-  "deployment_status": "pending",
-  "deployment_note": "ブラウザの公開先で更新版の起動を確認後に公開完了へ更新する。",
+  "deployment_status": "published",
+  "deployment_note": "GitHub Pagesでbuild 04の起動、公開バイナリ4件のHTTP 200、更新後の会話選択肢と長時間待機の処理順をChromeで確認済み。",
   "game_url": "https://dolphin0224-game.github.io/mou-nidoto-webgl-preview/?v=studio-20260906-04"
 }
