@@ -93,6 +93,28 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
         return None
 
 
+class WebhookConfigurationError(ValueError):
+    """Only hard-coded, non-secret configuration diagnostics may be displayed."""
+
+
+def webhook_url(raw):
+    value = raw.strip()
+    if not value:
+        raise WebhookConfigurationError("DISCORD_WEBHOOK_URLが空です。DiscordでコピーしたURLをSecret欄に保存してください。")
+    try:
+        parsed = urllib.parse.urlsplit(value)
+    except ValueError:
+        raise WebhookConfigurationError("Webhook URLの形式を読み取れません。URLだけをSecret欄に貼り直してください。") from None
+    if parsed.scheme != "https" or parsed.netloc not in ("discord.com", "discordapp.com"):
+        raise WebhookConfigurationError("Webhook URLの接続先がDiscordのHTTPS URLではありません。名前ではなく、コピーしたURLをSecret欄に保存してください。")
+    if parsed.query or parsed.fragment:
+        raise WebhookConfigurationError("Webhook URLに追加のパラメーターがあります。Discordの「ウェブフックURLをコピー」で取得したURLを保存してください。")
+    match = re.fullmatch(r"/api(?:/v[0-9]+)?/webhooks/([0-9]+)/([A-Za-z0-9_-]+)(?:/github)?/?", parsed.path)
+    if not match:
+        raise WebhookConfigurationError("Webhook URLのパスが不完全です。Discordの「ウェブフックURLをコピー」でURL全体を取得してください。")
+    return "https://discord.com/api/webhooks/" + match[1] + "/" + match[2]
+
+
 def transmit(url, data, content_type, thread_id=""):
     query = {"wait": "true"}
     if thread_id:
@@ -109,8 +131,7 @@ def transmit(url, data, content_type, thread_id=""):
 
 
 def deliver(config, report, content, state_dir, url, thread_id="", sender=transmit):
-    if not re.fullmatch(r"https://discord\.com/api/webhooks/[0-9]+/[A-Za-z0-9_-]+", url):
-        raise ValueError("DISCORD_WEBHOOK_URLを設定してください（値は表示しません）")
+    url = webhook_url(url)
     body, content_type = wire(content)
     key = hashlib.sha256((url + "\n" + thread_id + "\n" + report["id"]).encode()).hexdigest()
     digest = hashlib.sha256(content.encode()).hexdigest()
@@ -184,8 +205,11 @@ def main():
         state = Path(config["state_dir"])
         if not state.is_absolute():
             state = Path(args.config).resolve().parent / state
-        thread_id = os.environ.get("DISCORD_THREAD_ID", "") or str(config.get("thread_id", ""))
+        thread_id = (os.environ.get("DISCORD_THREAD_ID", "") or str(config.get("thread_id", ""))).strip()
         return deliver(config, report, content, state, os.environ.get("DISCORD_WEBHOOK_URL", ""), thread_id)
+    except WebhookConfigurationError as error:
+        print(str(error), file=sys.stderr)
+        return 2
     except Exception:
         # Do not print arbitrary exceptions, which may contain tokens or config contents.
         print("入力・設定または状態保存のエラー。設定と報告の形式、保存先を確認してください。", file=sys.stderr)
