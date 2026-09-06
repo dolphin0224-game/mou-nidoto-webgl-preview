@@ -1,0 +1,19 @@
+{
+  "id": "issue-1-studio-20260906-02",
+  "completed_at": "2026-09-06T17:26:42+09:00",
+  "changes": [
+    "蓮との最初の会話を『何をしているの？』から始め、鞄の紐を直している状況説明を追加",
+    "蒼と蓮を左右の三分割線に配置し、話者が変わっても二人の構図と視線を維持",
+    "会話終了・スキップ後に、開始前の歩行位置とカメラ方向へ戻るよう修正"
+  ],
+  "verification": [
+    "Windows実行検証45項目、制作フォーマット6テスト、既存規則48項目に合格",
+    "公開Chromeで第一声、蓮の応答、二人の構図、直接再生リンクを確認",
+    "GitHub Pages公開処理が成功"
+  ],
+  "unresolved": [
+    "台詞と構図の体験評価は共同制作者の再確認待ち"
+  ],
+  "deployment_status": "published",
+  "game_url": "https://dolphin0224-game.github.io/mou-nidoto-webgl-preview/studio/?scene=ren-conversation"
+}

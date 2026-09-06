@@ -31,3 +31,23 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Restore Discord delivery state
+        id: discord-state
+        uses: actions/cache@v4
+        with:
+          path: .github/.discord-report-state
+          key: discord-report-${{ hashFiles('site/release-report.json') }}
+      - name: Report published game fix to Discord
+        if: steps.discord-state.outputs.cache-hit != 'true'
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DISCORD_THREAD_ID: ${{ secrets.DISCORD_THREAD_ID }}
+        shell: bash
+        run: |
+          if [ -z "$DISCORD_WEBHOOK_URL" ]; then
+            echo "Discord reporting is ready but DISCORD_WEBHOOK_URL is not configured; skipping."
+            exit 0
+          fi
+          python .github/scripts/report.py \
+            --config .github/discord-report-config.json \
+            --report site/release-report.json
