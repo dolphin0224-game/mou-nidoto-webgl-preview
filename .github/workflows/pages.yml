@@ -45,6 +45,10 @@ jobs:
         shell: bash
         run: |
           if [ -z "$DISCORD_WEBHOOK_URL" ]; then
+            python .github/scripts/report.py \
+              --config .github/discord-report-config.json \
+              --report site/release-report.json \
+              --dry-run > /tmp/discord-report-preview.txt
             echo "Discord reporting is ready but DISCORD_WEBHOOK_URL is not configured; skipping."
             exit 0
           fi
