@@ -1,6 +1,8 @@
 import {BUILD,KINDS,SURFACES,STATUSES,newDoc,newShot,validateDoc,pack,unpack,acceptanceProblems,issueBody,example,withoutImages} from './core.mjs';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const GAME_URL=new URL('../?review=1',location.href), REPO='dolphin0224-game/escape-reboot-unity';
+const requestedPreset=new URLSearchParams(location.search).get('scene');
+if(requestedPreset&&[...$('#preset').options].some(option=>option.value===requestedPreset))$('#preset').value=requestedPreset;
 let docs=[],current,kind='order',shotIndex=0,db,ready=false,pendingPreset='title',lastPacket=null,saveTimer,saveChain=Promise.resolve(),savedRevision=0;
 function notice(text,error=false){$('#notice').textContent=text;$('#notice').classList.toggle('error',error);}
 function el(tag,text,cls){const x=document.createElement(tag);if(text!=null)x.textContent=text;if(cls)x.className=cls;return x;}

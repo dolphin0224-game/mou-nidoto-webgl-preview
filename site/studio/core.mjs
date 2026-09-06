@@ -1,4 +1,4 @@
-export const BUILD='studio-20260906-01';
+export const BUILD='studio-20260906-02';
 export const KINDS={order:'体験オーダー',storyboard:'カットシーン絵コンテ',review:'プレイレビュー'};
 export const SURFACES=['ゲーム全体','タイトル・起動','自由探索・移動','調査・謎解き','会話・カットシーン','戦闘・QTE・選択','日記・フローチャート','スマホ','メニュー・設定・セーブ','音・環境・天候','エンディング'];
 export const STATUSES=['下書き','相談したい','制作に進める','制作中','レビュー待ち','修正が必要','体験を確認済み','保留'];
