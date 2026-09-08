@@ -1,9 +1,28 @@
 {
-  "build": "studio-20260908-05",
+  "build": "studio-20260908-06",
   "scene_sha256": "307f0a2c323608d1c8e5596a601d491d2724443fe88c8845cd85577da70e7f19",
-  "data_sha256": "fda33a494ef27bbbd31c33372156fcc6736f8c2bb1f863ca5446d263ca03e15e",
-  "wasm_sha256": "d8fa345336937a0fa920d407401b62ea42d9709b4b31069d7c35f890886915a7",
+  "data_sha256": "f1b500f925703473092a082df905f1b062683fc138c7ecbfe969b29bc7bf78b6",
+  "wasm_sha256": "f58e12557ca3094a7cca7a4e5b6cdd65a8a12535f21711b5251f7911a60db773",
+  "compression": "gzip with Unity JavaScript decompression fallback",
+  "files": {
+    "WebGL.data.unityweb": {
+      "bytes": 556798558,
+      "sha256": "f1b500f925703473092a082df905f1b062683fc138c7ecbfe969b29bc7bf78b6"
+    },
+    "WebGL.wasm.unityweb": {
+      "bytes": 12517314,
+      "sha256": "f58e12557ca3094a7cca7a4e5b6cdd65a8a12535f21711b5251f7911a60db773"
+    },
+    "WebGL.framework.js.unityweb": {
+      "bytes": 83662,
+      "sha256": "73ec50c6a8ad9b05b14fc6d2d30df160b0b7a8fd12299b31bbc73ea37e2fe35c"
+    },
+    "WebGL.loader.js": {
+      "bytes": 47866,
+      "sha256": "529028dd4584a0fd25d5244d601c9e09dcc17eaae8d2b3d3bfffa5758202f6a1"
+    }
+  },
   "unity": "6000.5.0f1",
-  "source_commit": "3bdc8578bf702a9d40af204cc65d6fbf07fbefd8",
-  "validated_at": "2026-09-08T02:51:30.106925+09:00"
+  "source_commit": "bfa8dede9b88445716fc8a2713b60d5e81519403",
+  "validated_at": "2026-09-08T09:38:42.674073+09:00"
 }
