@@ -1,28 +1,28 @@
 {
-  "build": "studio-20260908-06",
-  "scene_sha256": "307f0a2c323608d1c8e5596a601d491d2724443fe88c8845cd85577da70e7f19",
-  "data_sha256": "f1b500f925703473092a082df905f1b062683fc138c7ecbfe969b29bc7bf78b6",
-  "wasm_sha256": "f58e12557ca3094a7cca7a4e5b6cdd65a8a12535f21711b5251f7911a60db773",
+  "build": "studio-20260909-07",
+  "scene_sha256": "deec7a291e9964987a614bd1dedf75cfb0c4a5561590c77ce599639b5c45a179",
+  "data_sha256": "460974cf78c95f99762ca7dfa376655dfa44873b39976b082ac43f38a0f93c6e",
+  "wasm_sha256": "3f24ae90070d9fb9f4f41c8a70017b1234d84d2be2141f1cc6e8bd7de8d18c9b",
   "compression": "gzip with Unity JavaScript decompression fallback",
   "files": {
     "WebGL.data.unityweb": {
-      "bytes": 556798558,
-      "sha256": "f1b500f925703473092a082df905f1b062683fc138c7ecbfe969b29bc7bf78b6"
+      "bytes": 543487213,
+      "sha256": "460974cf78c95f99762ca7dfa376655dfa44873b39976b082ac43f38a0f93c6e"
     },
     "WebGL.wasm.unityweb": {
-      "bytes": 12517314,
-      "sha256": "f58e12557ca3094a7cca7a4e5b6cdd65a8a12535f21711b5251f7911a60db773"
+      "bytes": 12525026,
+      "sha256": "3f24ae90070d9fb9f4f41c8a70017b1234d84d2be2141f1cc6e8bd7de8d18c9b"
     },
     "WebGL.framework.js.unityweb": {
       "bytes": 83662,
-      "sha256": "73ec50c6a8ad9b05b14fc6d2d30df160b0b7a8fd12299b31bbc73ea37e2fe35c"
+      "sha256": "4cfbd3fbd9ea7a9d77f815b945698284288b657c0193827e34c712e79ea8d601"
     },
     "WebGL.loader.js": {
       "bytes": 47866,
-      "sha256": "529028dd4584a0fd25d5244d601c9e09dcc17eaae8d2b3d3bfffa5758202f6a1"
+      "sha256": "c3ceb022abd9d65a4b2aae299b78ed14e273789a6a12cc909836e170f93e9d8e"
     }
   },
   "unity": "6000.5.0f1",
-  "source_commit": "bfa8dede9b88445716fc8a2713b60d5e81519403",
-  "validated_at": "2026-09-08T09:38:42.674073+09:00"
+  "source_commit": "27b6f8b8a7d4b56d8cc0dda76a809692116ce31f",
+  "validated_at": "2026-09-09T22:37:08.571320+09:00"
 }
